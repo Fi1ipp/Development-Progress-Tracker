@@ -1,0 +1,38 @@
+
+body {
+    background-color: rgb(255, 247, 236);
+}
+
+header {
+    background-color: antiquewhite;
+    position: fixed;  
+    top:0;
+    left:0;
+    right:0;
+    height:60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%; 
+    padding-left:50px;
+    padding-right:50px;
+}
+
+.nav-element li {
+    display:inline;
+    margin-left:20px;
+}
+
+.nav-element li a {
+    text-decoration: none;
+    color: black;
+    padding:5px;
+    border-radius: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+}
+
+.nav-element li:hover a  {
+    background-color: rgb(255, 221, 180);
+    text-decoration:underline;
+}
