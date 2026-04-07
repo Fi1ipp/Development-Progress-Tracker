@@ -7,22 +7,9 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <div>
-          <a href="index.html">
-            <img src="img/logo.png" height="40">
-          </a>
-        </div>
-      <nav>
-        <ul class="nav-element">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="login.php">Sign In</a></li>
-        </ul>
-      </nav>
-    </header>
+    <?php require "parts/header.php"?>
 
     <div class="temp-gap">
-        a
     </div>
 
     <footer>
