@@ -12,9 +12,7 @@
     <div class="temp-gap">
     </div>
 
-    <footer>
-        <h1>Footer</h1>
-    </footer>
+    <?php require "parts/footer.php"?>
     
 </body>
 </html>
