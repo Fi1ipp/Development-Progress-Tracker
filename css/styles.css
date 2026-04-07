@@ -3,6 +3,10 @@ body {
     background-color: rgb(255, 247, 236);
 }
 
+.temp-gap { 
+    height:923px;
+}
+
 header {
     background-color: antiquewhite;
     position: fixed;  
@@ -10,6 +14,19 @@ header {
     left:0;
     right:0;
     height:60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%; 
+    padding-left:50px;
+    padding-right:50px;
+}
+
+footer {
+    color:white;
+    background-color: rgb(46, 46, 46);
+    height:255px;
+    margin:-8px;
     display: flex;
     align-items: center;
     justify-content: space-between;

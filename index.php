@@ -20,6 +20,14 @@
         </ul>
       </nav>
     </header>
+
+    <div class="temp-gap">
+        a
+    </div>
+
+    <footer>
+        <h1>Footer</h1>
+    </footer>
     
 </body>
 </html>
