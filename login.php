@@ -8,9 +8,17 @@
 </head>
 <body>
     <form action="welcome.php" method="post">
-        Name:   <input type="text" name="name" required placeholder="John Doe"><br><br>
-        E-mail: <input type="text" name="email" required placeholder="john.doe@email.com"><br><br>
-        <input type="submit" id="submit">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required placeholder="John Doe"><br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="text" name="email" required placeholder="john.doe@email.com"><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br><br>
+        
+        <input type="submit" id="submit" value="Log In"><br>
+        <a href="register.php">Register</a>
     </form>
 </body>
 </html>
