@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <form action="db/register-db.php" method="post">
+    <form action="db/register.php" method="post">
         <label for="name">Name:</label> 
         <input type="text" name="name" required placeholder="John Doe" maxlength="48"><br><br>
 
