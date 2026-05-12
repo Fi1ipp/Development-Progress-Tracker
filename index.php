@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<?php
-    session_start();
-?>
+<?php session_start(); ?>
 
 <body>
     <?php require "parts/header.php"?>
