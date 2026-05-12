@@ -62,7 +62,7 @@ class Users extends Database {
         }
 
         session_start();
-        $_SESSION['user_id'] = $user['ID'];
+        $_SESSION['user_id'] = $user['id'];
         $_SESSION['name'] = $user['name'];
     }
 

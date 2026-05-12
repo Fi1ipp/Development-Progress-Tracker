@@ -6,13 +6,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
+<?php
+    session_start();
+?>
+
 <body>
     <?php require "parts/header.php"?>
 
     <div class="temp-gap">
     </div>
-
-    <?php require "parts/footer.php"?>
     
 </body>
 </html>

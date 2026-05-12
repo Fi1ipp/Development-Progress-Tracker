@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <form action="db/register.php" method="post">
+
+    <?php require "parts/header.php"?>
+
+    <form action="db/register.php" method="post" style="margin-top: 14em;">
         <label for="name">Name:</label> 
         <input type="text" name="name" required placeholder="John Doe" maxlength="48"><br><br>
 
