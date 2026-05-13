@@ -9,7 +9,7 @@
 
             <?php
                 if (isset($_SESSION['user_id'])) {
-                    echo '<li class="create"><a href="">+ Create Project</a></li><br><br><br>';
+                    echo '<li class="create"><a href="'.__PATH__.'/user_websites/create.php">+ Create Project</a></li><br><br><br>';
                 } else {
                     getDefaults();
                 }
