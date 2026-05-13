@@ -2,3 +2,27 @@ body {
     padding-top:75px;
     padding-left:14em;
 }
+
+.track {
+    background-color:bisque;
+    padding-left: 2em;
+    padding-right: 2em;
+    height:50em;
+    padding-top:1em;
+    border-radius: 1em;
+}
+
+.track h2 {
+    text-align: center;
+}
+
+.li {
+    background-color: white;
+    padding-inline: 4em;
+    border-radius: 1em;
+    margin-bottom: -0.75em;
+}
+
+.li h3 {
+    text-align: center;
+}
