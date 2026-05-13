@@ -53,3 +53,54 @@ footer {
     background-color: rgb(255, 221, 180);
     text-decoration:underline;
 }
+
+.side-menu {
+    background-color: rgb(255, 243, 228);
+    position: fixed;  
+    top:0;
+    left:0;
+    right:0;
+    width: 12em;
+    padding-top:75px;
+    display: flex;
+    justify-content:center;
+    height: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.menu-element li {
+    background-color: bisque;
+    max-width: 10em;
+    margin-left:-2.5em;
+    padding-left:1em;
+    padding-right:1em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    border-radius: 5px;
+    display:inline;
+}
+
+.menu-element .create {
+    padding-bottom: 1em;
+    padding-top: 1em;
+    background-color: olivedrab;
+    color:white;
+}
+
+.menu-element li a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.menu-element .create a {
+    color:rgb(255, 240, 223);
+}
+
+.menu-element :hover {
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.menu-element li :hover {
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+}

@@ -1,7 +1,7 @@
 <?php
-session_start();
-define('__ROOT__', dirname(__FILE__));
-define('__PATH__', "/Development%20Progress%20Tracker");
+    session_start();
+    define('__ROOT__', dirname(dirname(dirname(__FILE__))));
+    define('__PATH__', "/Development%20Progress%20Tracker");
 ?>
 
 <!DOCTYPE html>
@@ -15,9 +15,10 @@ define('__PATH__', "/Development%20Progress%20Tracker");
 </head>
 
 <body>
-    <?php require __ROOT__."/parts/menu.php"?>
-    <?php require __ROOT__."/parts/header.php"?>
+    <?php require(__ROOT__."/parts/menu.php")?>
+    <?php require(__ROOT__."/parts/header.php")?>
 
+    <p>hello</p>
     
 </body>
 </html>

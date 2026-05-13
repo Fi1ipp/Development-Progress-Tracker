@@ -9,7 +9,11 @@
 </head>
 <body>
 
-    <?php require "parts/header.php"?>
+    <?php
+    define('__ROOT__', dirname(__FILE__));
+    define('__PATH__', "/Development%20Progress%20Tracker");
+    require __ROOT__."/parts/header.php"
+    ?>
 
     <form action="db/register.php" method="post" style="margin-top: 14em;">
         <label for="name">Name:</label> 

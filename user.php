@@ -11,10 +11,12 @@
 
 <?php
     session_start();
+    define('__ROOT__', dirname(__FILE__));
+    define('__PATH__', "/Development%20Progress%20Tracker");
 ?>
 
 <body>
-    <?php require "parts/header.php"?>
+    <?php require __ROOT__."/parts/header.php"?>
     <div class="dif">
 
         <form style="height:inherit; padding-top:40px; padding-bottom:40px;">
