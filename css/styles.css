@@ -64,31 +64,49 @@ footer {
     padding-top:75px;
     display: flex;
     justify-content:center;
+    text-align: center;
     height: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .menu-element li {
-    background-color: bisque;
     max-width: 10em;
     margin-left:-2.5em;
-    padding-left:1em;
-    padding-right:1em;
-    padding-bottom: 0.5em;
-    padding-top: 0.5em;
-    border-radius: 5px;
-    display:inline;
+    border-radius: 1em;
+    list-style-type: none;
 }
 
 .menu-element .create {
-    padding-bottom: 1em;
-    padding-top: 1em;
+    margin-bottom: -0.75em;
+}
+
+.menu-element .create a {
+    padding-bottom: 1.5em;
+    padding-top: 1.5em;
+    border-radius: 1em;
     background-color: olivedrab;
     color:white;
 }
 
-.menu-element li a {
+.menu-element li {
+    display:inline;
+    max-width: 10em;
+    width: 10em;
+    padding-bottom: 0.25em;
+    padding-top: 0.25em;
+    max-width: 10em;
+    width: 10em;
+}
+
+.menu-element a {
+    display:inline-block;
+    background-color: bisque;
+    font-size: 16px;
+    padding-bottom: 0.25em;
+    padding-top: 0.25em;
     text-decoration: none;
+    border-radius: 1em;
+    border-style:none;
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -97,10 +115,10 @@ footer {
     color:rgb(255, 240, 223);
 }
 
-.menu-element :hover {
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+.menu-element li :hover {
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.5);
 }
 
-.menu-element li :hover {
+.menu-element a :hover {
     box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
 }

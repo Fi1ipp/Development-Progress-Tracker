@@ -2,7 +2,7 @@
 // template = ["name",[["checkname",true]]];
 
 const dflt = [
-    ["To Do", true, "1", [["name",[["checkname",true]]]]], 
+    ["To Do", true, "1", []], 
     ["In Progress", true, "100",[]], 
     ["Done", false, "final", []]
 ]
@@ -262,7 +262,7 @@ class Trackers {
         let filename = path.substring(path.lastIndexOf("/") + 1);
         filename = filename.substring(0, filename.length-4);
 
-        //this.save(filename);
+        this.save(filename);
 
         document.getElementById("container").appendChild(this.loadTrackerBase());
 

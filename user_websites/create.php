@@ -19,11 +19,11 @@ define('__PATH__', "/Development%20Progress%20Tracker");
     <?php require __ROOT__."/parts/menu.php"?>
     <?php require __ROOT__."/parts/header.php"?>
 
-    <form action="functions/create.php" method="post" style="margin-top: 14em;">
+    <form action="<?php echo __PATH__.'/functions/create.php' ?>" method="post" style="margin-top: 14em;">
         <label for="name">Project Name:</label>
         <input type="text" name="name" required placeholder="Project1"><br><br>
         
-        <input type="submit" id="submit" value="Log In"><br>
+        <input type="submit" id="submit" value="Create"><br>
     </form>
     
 </body>

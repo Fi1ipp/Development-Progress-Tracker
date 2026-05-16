@@ -9,7 +9,7 @@ define('__PATH__', "/Development%20Progress%20Tracker");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Development Progress Tracker</title>
     <?php echo '<link rel="stylesheet" href="'.__PATH__.'/css/styles.css">' ?>
     <?php echo '<link rel="stylesheet" href="'.__PATH__.'/css/mainSite.css">' ?>
 </head>

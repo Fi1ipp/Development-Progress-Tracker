@@ -4,15 +4,19 @@ define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__.'/db/site.php');
 
 $name = $_POST["name"];
+$id = $_POST["id"];
+$site_id = $_POST["site_id"];
 
 if (empty($name)) {
     die("Chyba: Všetky informácie musia byť vyplnené.");
 }
 
 try {
-    $site = new Site();
-    $id = $_SESSION['user_id'];
-    $site->createSite($id, $name);
+    $user_id = $_SESSION['user_id'];
+    if ($user_id == $id) {
+        $site = new Site();
+        $site->editProject($id,$site_id,$name);
+    }
     return header (header: 'Location: http://localhost/Development%20Progress%20Tracker/index.php');
 } catch (Exception $e) {
     http_response_code(response_code: 404);
