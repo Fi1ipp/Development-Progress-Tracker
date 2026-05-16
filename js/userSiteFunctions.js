@@ -20,7 +20,7 @@ function editName(site_name) {
 
 function deleteProject(site_name) {
     const formData = new FormData();
-    const sure = prompt("Are you sure?");
+    const sure = prompt("Are you sure you want to delete this project?");
 
     const ids = site_name.split("_")
 

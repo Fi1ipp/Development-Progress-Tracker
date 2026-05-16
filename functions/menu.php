@@ -25,12 +25,14 @@ require_once(__ROOT__.'/db/site.php');
             $check = explode("_",$f);
 
             if ($id == $check[0]) {
-                $site_name = $site->getSiteName($check[0], $check[1]);
+                $title = $site->getSiteName($check[0], $check[1]);
+
+                $site_name = (strlen($title) > 10)?substr($title,0,10)."...":$title;
 
                 $edit_btn = "<button onClick=editName('".$f."')>✎</button>";
                 $delete_btn = "<button onClick=deleteProject('".$f."')>⌂</button>";
 
-                echo '<li><a href="'.__PATH__.substr($file, strlen(__ROOT__)).'">'.$site_name.'</a>'.$edit_btn.$delete_btn.'</li><br>';
+                echo '<li><a title="'.$title.'" href="'.__PATH__.substr($file, strlen(__ROOT__)).'">'.$site_name.' '.$edit_btn.$delete_btn.'</a></li><br>';
             }
         }
     }

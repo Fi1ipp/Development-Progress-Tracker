@@ -78,9 +78,11 @@ footer {
 
 .menu-element .create {
     margin-bottom: -0.75em;
+    background-color: beige;
 }
 
 .menu-element .create a {
+    text-align: center;
     padding-bottom: 1.5em;
     padding-top: 1.5em;
     border-radius: 1em;
@@ -89,18 +91,17 @@ footer {
 }
 
 .menu-element li {
-    display:inline;
+    background-color: bisque;
+    display:inline-block;
     max-width: 10em;
     width: 10em;
-    padding-bottom: 0.25em;
-    padding-top: 0.25em;
     max-width: 10em;
     width: 10em;
 }
 
 .menu-element a {
     display:inline-block;
-    background-color: bisque;
+    width: 10em;
     font-size: 16px;
     padding-bottom: 0.25em;
     padding-top: 0.25em;
@@ -109,6 +110,20 @@ footer {
     border-style:none;
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.menu-element li button {
+    width: 2em;
+    height: 2em;
+    background-color: beige;
+    border-radius: 1em;
+    border-width: 2px;
+    border-color: bisque;
+}
+
+.menu-element li button:hover {
+    background-color: white;
+    border-color: beige;
 }
 
 .menu-element .create a {

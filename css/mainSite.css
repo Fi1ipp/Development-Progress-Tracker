@@ -2,15 +2,20 @@ body {
     padding-top:75px;
     padding-left:14em;
 }
+ 
 
 .track {
     background-color:bisque;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
+    width:15em;
     min-height:50em;
+    max-height: none;
     padding-top:1em;
     border-radius: 1em;
     text-align: center;
+    height: auto;
+    max-height: none;
 }
 
 .li {
