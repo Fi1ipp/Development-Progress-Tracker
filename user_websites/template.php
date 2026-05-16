@@ -13,6 +13,7 @@ define('__PATH__', "/Development%20Progress%20Tracker");
     <?php echo '<link rel="stylesheet" href="'.__PATH__.'/css/styles.css">' ?>
     <?php echo '<link rel="stylesheet" href="'.__PATH__.'/css/form.css">' ?>
     <?php echo '<link rel="stylesheet" href="'.__PATH__.'/css/mainSite.css">' ?>
+
 </head>
 
 <body>
@@ -20,38 +21,21 @@ define('__PATH__', "/Development%20Progress%20Tracker");
         require __ROOT__."/parts/menu.php";
         require __ROOT__."/parts/header.php";
 
-        $trackers = array( ["To Do", true, ">0", [["test",[["test1",true],["test2",true]]],["test2",[["test2",false]]]]] , ["In Progress", true, "=100",[]] , ["Done", false, null, []]);
-        $checked = "checked";
-
     ?>
 
-    <?php echo '<div style="columns:'.count($trackers).';">'; 
-        foreach ($trackers as $t) {
-            echo '<div class="track">
-            
-               <h2>'.$t[0].'</h2>';
+    <div id="container"></div>
 
-            foreach ($t[3] as $li) {
-                echo ' <div class="li">
-                
-                <h3>'.$li[0].'</h3>';
 
-                    foreach ($li[1] as $l) {
-                        if ($l[1] === true) {
-                            echo '<input type="checkbox" checked id="'.$li[0].'-'.$l[0].'" name="'.$li[0].'-'.$l[0].'">';
-                            echo '<label for="'.$li[0].'-'.$l[0].'">'.$l[0].'</label><br><br>';
-                        } else {
-                            echo '<input type="checkbox" id="'.$li[0].'-'.$l[0].'" name="'.$li[0].'-'.$l[0].'">';
-                            echo '<label for="'.$li[0].'-'.$l[0].'">'.$l[0].'</label><br><br>';
-                        }
-                    }
-                echo '</div>';
-            }
-            
-            echo '</div>';
-        }
-    ?>
-    </div>
+    <script src="<?php echo __PATH__.'/functions/trackers.js'; ?>"></script>
+
+    <script>
+
+        const trackers = new Trackers(localStorage.getItem("<?php echo basename($_SERVER['PHP_SELF'], '.php'); ?>"));
+
+        document.getElementById("container").appendChild(trackers.loadTrackerBase());
+
+    </script>
+
 
     
 </body>
