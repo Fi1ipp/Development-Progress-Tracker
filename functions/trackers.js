@@ -83,6 +83,19 @@ class Trackers {
         newDiv.className = "track";
         newDiv.id = "track"+index;
 
+        let deleteTrack = document.createElement("button");
+        deleteTrack.textContent = "⌂";
+        deleteTrack.className = "trackOptions";
+        deleteTrack.setAttribute("onclick", "trackers.deleteTrack("+index+")");
+
+        let renameTrack = document.createElement("button");
+        renameTrack.textContent = "✎";
+        renameTrack.className = "trackOptions";
+        renameTrack.setAttribute("onclick", "trackers.renameTrack("+index+")");
+
+        newDiv.appendChild(renameTrack);
+        newDiv.appendChild(deleteTrack);
+
         const name = document.createElement("h2");
         const text = document.createTextNode(tracker[0]);
         name.appendChild(text);
@@ -111,9 +124,34 @@ class Trackers {
         newDiv.className = "li";
         newDiv.id = "li"+index;
 
+        let deleteList = document.createElement("button");
+        deleteList.textContent = "⌂";
+        deleteList.className = "listOptions";
+        deleteList.setAttribute("onclick", "trackers.deleteList("+this.getTracker(trackerName)+","+index+")");
+
+        let renameList = document.createElement("button");
+        renameList.textContent = "✎";
+        renameList.className = "listOptions";
+        renameList.setAttribute("onclick", "trackers.renameList("+this.getTracker(trackerName)+","+index+")");
+
+        let editChecks = document.createElement("button");
+        editChecks.textContent = "✓";
+        editChecks.className = "listOptions";
+        editChecks.setAttribute("onclick", "trackers.editChecks("+this.getTracker(trackerName)+","+index+")");
+
+
+        newDiv.appendChild(renameList);
+        newDiv.appendChild(editChecks);
+        newDiv.appendChild(deleteList);
+
+        let listTotal = 0;
+        let listValue = 0;
+
         const name = document.createElement("h3");
         const text = document.createTextNode(listItem[0]);
         name.appendChild(text);
+
+        const lV = document.createElement("p");
 
         newDiv.appendChild(name);
 
@@ -124,6 +162,8 @@ class Trackers {
             checkbox.name = listItem[0]+"-"+listItem[1][i][0];
             checkbox.setAttribute("onclick", "trackers.check('"+trackerName+"',"+index+","+i+")");
             checkbox.checked = listItem[1][i][1];
+            listTotal+=1;
+            listValue+=(listItem[1][i][1])?1:0;
 
             newDiv.appendChild(checkbox);
             
@@ -135,6 +175,10 @@ class Trackers {
             newDiv.appendChild(document.createElement("br"))
 
         }
+
+        lV.textContent = (listTotal > 0)?(listValue/listTotal)*100+"%":"NaN";
+
+        newDiv.insertBefore(lV,renameList);
 
         let Lbutton = document.createElement("button");
         Lbutton.textContent = "<";
@@ -283,6 +327,86 @@ class Trackers {
         this.save(filename);
 
         document.getElementById("container").appendChild(this.loadTrackerBase());
+
+    }
+
+    deleteTrack(index) {
+        let sure = prompt("Are you sure you want to delete "+this.trackers[index][0]+"?");
+
+        if(sure !== null) {
+            this.trackers.splice(index,index+1);
+        }
+
+        this.rerenderTrackers()
+    }
+
+    renameTrack(index) {
+        let rename = prompt("Do you want to rename "+this.trackers[index][0]+"?");
+
+        if(rename !== null) {
+            this.trackers[index][0] = rename;
+        }
+
+        this.rerenderTrackers()
+    }
+
+    deleteList(Trackerindex, index) {
+        let sure = prompt("Are you sure you want to delete "+this.trackers[Trackerindex][3][index][0]+"?");
+
+        if(sure !== null) {
+            this.trackers[Trackerindex][3].splice(index,index+1);
+        }
+
+        this.rerenderTrackers()
+    }
+
+    renameList(Trackerindex, index) {
+        let rename = prompt("Do you want to rename "+this.trackers[Trackerindex][3][index][0]+"?");
+
+        if(rename !== null) {
+            this.trackers[Trackerindex][3][index][0] = rename;
+        }
+
+        this.rerenderTrackers()
+    }
+
+    editChecks(Trackerindex, index) {
+
+        let goalChecks = prompt("How many checks do you need to add or delete?")
+
+        if (goalChecks !== null) {
+                    
+            if (!Number.isNaN(Number(goalChecks))) {
+
+                goalChecks = parseInt(goalChecks);
+
+            } else {goalChecks = 1;}
+            
+            if (goalChecks < 0) {
+
+                if (this.trackers[Trackerindex][3][index][1].length+goalChecks <= 0 ) {
+                    let confirm = prompt("Are you sure you want to delete all checks?");
+                    if (confirm !== null) {
+                        this.trackers[Trackerindex][3][index][1].splice(0,this.trackers[Trackerindex][3][index][1].length+1)
+                    }
+                } else {
+                    let confirm = prompt("Are you sure you want to delete "+(goalChecks*(-1))+" checks?");
+                    if (confirm !== null) {
+                        this.trackers[Trackerindex][3][index][1].splice(this.trackers[Trackerindex][3][index][1].length+goalChecks,  this.trackers[Trackerindex][3][index][1].length+1)
+                    }
+                }
+
+            } else {
+                for (let i = 0; i < goalChecks; i++) {
+                    let checkName = prompt("Check"+(i+1)+" name:");
+                    checkName = (checkName!==null)?checkName:"";
+
+                    this.trackers[Trackerindex][3][index][1].push([checkName, false]);
+                }
+            }
+        }
+
+        this.rerenderTrackers();
 
     }
 
