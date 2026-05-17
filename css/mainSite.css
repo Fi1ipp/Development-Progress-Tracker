@@ -5,7 +5,6 @@ body {
 
 #container {
     margin-left: -2em;
-    background-color: black;
     width: 100%;
     display: grid;
     justify-content: space-evenly;
@@ -24,20 +23,43 @@ body {
     overflow:hidden;
 }
 
+.trackOptions {
+    padding-top: 1px;
+    width:2em;
+    height:2em;
+    margin-inline: 1em;
+    background-color: antiquewhite;
+    border-radius: 0.5em;
+    border-width: 2px;
+    border-color: bisque;
+}
+
 .li {
     background-color: white;
-    padding-inline: 4em;
+    padding-inline: 1em;
     border-radius: 1em;
-    margin-top: -0.75em;
+    margin-top: 0.5em;
+}
+
+.li h3 {
+    margin-top: -0.25em;
 }
 
 .li button {
+    width: 2em;
+    height: 1.5em;
     margin-top: 1em;
     margin-bottom: 0.5em;
     border-style:solid;
     background-color:bisque;
     border-radius: 5px;
     border-color: bisque;
+}
+
+.li p {
+    text-align: left;
+    margin-bottom: -1em;
+    padding: 0.25em;
 }
 
 .li button:active {
