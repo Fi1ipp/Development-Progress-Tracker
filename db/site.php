@@ -76,6 +76,38 @@ class Site extends Database {
         }
     }
 
+    public function saveData($id, $site_id, $data) {
+
+        $user_id = $_SESSION['user_id'];
+        
+        if ($user_id == $id) {
+            try {
+
+                $sql = "UPDATE user_sites SET data = ? WHERE user_id = ? AND site_id = ?";
+                $statement = $this->connection->prepare($sql);
+                $statement->bindParam(1, $data);
+                $statement->bindParam(2, $id);
+                $statement->bindParam(3, $site_id);
+                $statement->execute();
+
+            } catch (Exception $e) {
+                echo "Chyba pri aktualizovaní dát v databáze: ".$e->getMessage();
+            }
+        }
+    }
+
+    public function getData($id, $site_id) {
+
+        $sql = "SELECT data FROM user_sites WHERE (user_id = ? AND site_id = ?) LIMIT 1;";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(1, $id);
+        $statement->bindParam(2, $site_id);
+        $statement->execute();
+        $data = $statement->fetch();
+
+        return $data['data'];
+    }
+
     public function deleteProject($id, $site_id) {
 
         $user_id = $_SESSION['user_id'];

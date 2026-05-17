@@ -9,9 +9,10 @@ const dflt = [
 
 class Trackers {
 
-    constructor(t) {
+    constructor(t, data) {
+
         try {
-            this.trackers = t ? JSON.parse(t) : dflt;
+            this.trackers = t ? JSON.parse(t) : data ? JSON.parse(data) : dflt;
         } catch (e) {
             console.warn("Invalid localStorage data, resetting");
             this.trackers = dflt;
@@ -20,6 +21,23 @@ class Trackers {
 
     save(name) {
         localStorage.setItem(name, JSON.stringify(this.trackers));
+
+        const formData = new FormData();
+        
+        const ids = name.split("_");
+        const data = JSON.stringify(this.trackers);
+
+        formData.append("data", data);
+        formData.append("id", ids[0])
+        formData.append("site_id", ids[1])
+
+        const func = "http://localhost/Development%20Progress%20Tracker/functions/saveData.php"
+
+        fetch(func, {
+            method: "POST",
+            body: formData
+        })
+
     }
 
     loadTrackerBase() {

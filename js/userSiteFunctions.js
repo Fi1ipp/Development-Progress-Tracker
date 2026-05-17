@@ -22,6 +22,8 @@ function deleteProject(site_name) {
     const formData = new FormData();
     const sure = prompt("Are you sure you want to delete this project?");
 
+    localStorage.removeItem(site_name);
+
     const ids = site_name.split("_")
 
     if (sure !== null) {

@@ -1,7 +1,9 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 session_start();
 define('__ROOT__', dirname(dirname(__FILE__)));
 define('__PATH__', "/Development%20Progress%20Tracker");
+require_once(__ROOT__.'/db/site.php');
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +32,17 @@ define('__PATH__', "/Development%20Progress%20Tracker");
 
     <script>
 
-        const trackers = new Trackers(localStorage.getItem("<?php echo basename($_SERVER['PHP_SELF'], '.php'); ?>"));
+        <?php
+            $site = new Site();
+
+            $ids = basename($_SERVER['PHP_SELF'], '.php');
+            $ids = explode("_", $ids);
+
+            $data = $site->getData($ids[0], $ids[1]);
+
+        ?>
+
+        const trackers = new Trackers(localStorage.getItem("<?php echo basename($_SERVER['PHP_SELF'], '.php')?>") , JSON.stringify(<?php echo $data ;?>));
 
         document.getElementById("container").appendChild(trackers.loadTrackerBase());
 

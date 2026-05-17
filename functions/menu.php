@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
+define('__ROOT__', dirname(dirname(__FILE__)));
 require_once(__ROOT__.'/db/database.php');
 require_once(__ROOT__.'/db/site.php');
 
