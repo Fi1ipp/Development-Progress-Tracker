@@ -2,7 +2,14 @@ body {
     padding-top:75px;
     padding-left:14em;
 }
- 
+
+#container {
+    margin-left: -2em;
+    background-color: black;
+    width: 100%;
+    display: grid;
+    justify-content: space-evenly;
+}
 
 .track {
     background-color:bisque;
@@ -10,12 +17,11 @@ body {
     padding-right: 1em;
     width:15em;
     min-height:50em;
-    max-height: none;
     padding-top:1em;
     border-radius: 1em;
     text-align: center;
     height: auto;
-    max-height: none;
+    overflow:hidden;
 }
 
 .li {
@@ -69,6 +75,9 @@ button:hover {
     border-radius: 1em;
     align-content: center;
     text-align: center;
+    max-height: none;
+    height: auto;
+    overflow:hidden;
 }
 
 .newTracker {

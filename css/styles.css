@@ -55,6 +55,7 @@ footer {
 }
 
 .side-menu {
+    overflow: scroll;
     background-color: beige;
     position: fixed;  
     top:0;

@@ -43,19 +43,20 @@ class Trackers {
     loadTrackerBase() {
         
         const newDiv = document.createElement("div");
-        newDiv.style.columns = this.trackers.length+2;
+        newDiv.style.columns = (this.trackers.length < 5)?this.trackers.length+2:this.trackers.length+1;
         newDiv.id = "newDiv";
+        
+        if (this.trackers.length < 5) {
+            const buttonDiv1 = document.createElement("div");
+            buttonDiv1.className = "newTrackerButton";
+            let button1 = document.createElement("button");
+            button1.textContent = "+";
+            button1.className = "newTracker";
+            button1.setAttribute("onclick", "trackers.newTracker('left')");
 
-        const buttonDiv1 = document.createElement("div");
-        buttonDiv1.className = "newTrackerButton";
-        let button1 = document.createElement("button");
-        button1.textContent = "+";
-        button1.className = "newTracker";
-        button1.setAttribute("onclick", "trackers.newTracker('left')");
-
-        buttonDiv1.appendChild(button1);
-
-        newDiv.appendChild(buttonDiv1);
+            buttonDiv1.appendChild(button1);
+            newDiv.appendChild(buttonDiv1);
+        }
 
         this.trackers.forEach((tracker, index) => {
             const trackerElement = this.renderTrackers(tracker, index);
@@ -70,7 +71,6 @@ class Trackers {
         button2.setAttribute("onclick", "trackers.newTracker('right')");
 
         buttonDiv2.appendChild(button2);
-
         newDiv.appendChild(buttonDiv2);
 
         return newDiv;
