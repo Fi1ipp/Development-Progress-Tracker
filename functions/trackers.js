@@ -79,6 +79,9 @@ class Trackers {
 
     renderTrackers(tracker, index) {
 
+        let trackerValue = 0;
+        let trackerTotal = 0;
+
         const newDiv = document.createElement("div");
         newDiv.className = "track";
         newDiv.id = "track"+index;
@@ -105,7 +108,9 @@ class Trackers {
         tracker[3].forEach((litem, lindex) => {
 
             const listElement = this.trackerList(litem, lindex, tracker[0]);
-            newDiv.appendChild(listElement);
+            newDiv.appendChild(listElement[0]);
+            trackerTotal+=listElement[1];
+            trackerValue+=listElement[2];
 
         });
 
@@ -115,6 +120,11 @@ class Trackers {
         button.setAttribute("onclick", "trackers.newGoal('"+tracker[0]+"')");
 
         newDiv.appendChild(button);
+
+        let tV = document.createElement("p");
+        tV.textContent = (trackerTotal>0)?Math.round((trackerValue/trackerTotal)*10000)/100+"%":"NaN";
+
+        newDiv.insertBefore(tV,renameTrack);
 
         return newDiv;
     }
@@ -176,7 +186,7 @@ class Trackers {
 
         }
 
-        lV.textContent = (listTotal > 0)?(listValue/listTotal)*100+"%":"NaN";
+        lV.textContent = (listTotal > 0)?Math.round((listValue/listTotal)*10000)/100+"%":"NaN";
 
         newDiv.insertBefore(lV,renameList);
 
@@ -193,7 +203,7 @@ class Trackers {
         newDiv.appendChild(Lbutton);
         newDiv.appendChild(Rbutton);
 
-        return newDiv;
+        return [newDiv,listTotal,listValue];
 
     }
 
@@ -281,7 +291,11 @@ class Trackers {
 
         if (trackerIndex > 0) {
             let temp = this.trackers[trackerIndex][3][listIndex];
-            this.trackers[trackerIndex][3].splice(listIndex,listIndex+1);
+            if (listIndex > 0) {
+                this.trackers[trackerIndex][3].splice(listIndex,listIndex);
+            } else {
+                this.trackers[trackerIndex][3].splice(listIndex,listIndex+1);
+            }
             this.trackers[trackerIndex-1][3].push(temp);
 
             this.rerenderTrackers();
@@ -296,7 +310,11 @@ class Trackers {
 
         if (trackerIndex < this.trackers.length) {
             let temp = this.trackers[trackerIndex][3][listIndex];
-            console.log(this.trackers[trackerIndex][3].splice(listIndex,listIndex+1));
+            if (listIndex > 0) {
+                this.trackers[trackerIndex][3].splice(listIndex,listIndex);
+            } else {
+                this.trackers[trackerIndex][3].splice(listIndex,listIndex+1);
+            }
             this.trackers[trackerIndex+1][3].push(temp);
 
             this.rerenderTrackers();

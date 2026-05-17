@@ -44,8 +44,8 @@ require_once(__ROOT__.'/db/site.php');
 
             if ($ids[0] === $_SESSION['user_id']) {
 
-            echo 'const trackers = new Trackers(localStorage.getItem("'.basename($_SERVER['PHP_SELF'], '.php').'") , JSON.stringify(' . $data . '));'
-            echo 'document.getElementById("container").appendChild(trackers.loadTrackerBase());';
+                echo 'const trackers = new Trackers(localStorage.getItem("'.basename($_SERVER['PHP_SELF'], '.php').'") , JSON.stringify(' . $data . '));'
+                echo 'document.getElementById("container").appendChild(trackers.loadTrackerBase());';
 
             }
 

@@ -24,6 +24,11 @@ body {
     max-height: none;
 }
 
+.track p {
+    margin-top: -0.5em;
+    margin-bottom:-0.1em;
+}
+
 .trackOptions {
     padding-top: 1px;
     width:2em;
